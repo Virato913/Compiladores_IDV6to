@@ -1,0 +1,14 @@
+﻿  Stdafx.cpp
+  AssemblyInfo.cpp
+  CompilerCore.cpp
+  ErrorModule.cpp
+  GlobalNode.cpp
+  Lexico.cpp
+  LocalNode.cpp
+  SymTable.cpp
+  Token.cpp
+  Generating Code...
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
+  AssemblyInfo.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  CompilerCore.vcxproj -> D:\IDV 6º\CompilerUI\Debug\CompilerCore.dll
+  CompilerCore.vcxproj -> D:\IDV 6º\CompilerUI\Debug\CompilerCore.pdb (Partial PDB)
