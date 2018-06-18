@@ -72,17 +72,18 @@ void Lexico::clearTokens()
 
 bool Lexico::parseSourceCode(const char* src)
 {
-	bool isstring = false;
-	int commentaryCount, commentaryLine;
+	bool stringOpen = false, commentOpen = false;
+	int commentLine;
 	int ended = 2;
 	int iCurrentLine = 1;
 	const char* cCurrChar = src;
 	const char* cCurrLine = src;
 	int errorPosition = -1;
 	char cErrorBuffer[1000];
+	char comment[1000];
+	*comment = NULL;
 	std::string sTokenBuffer;
 	m_cLexState = LEX_STATE::START;
-	commentaryCount = 0;
 	memset(cErrorBuffer, 0, sizeof(cErrorBuffer));
 	while (ended>0 && m_error->getErrorsNumber() <= m_error->getMaxErrors())
 	{
@@ -136,7 +137,7 @@ bool Lexico::parseSourceCode(const char* src)
 				sTokenBuffer.clear();
 				sTokenBuffer.append(cCurrChar, 1);
 				cCurrChar++;
-				isstring = true;
+				stringOpen = true;
 				m_cLexState = LEX_STATE::PARSING_CHAR;
 			}
 			else if (*cCurrChar == ':' || *cCurrChar == ',' || *cCurrChar == ';')
@@ -165,13 +166,13 @@ bool Lexico::parseSourceCode(const char* src)
 			}
 			else if (*cCurrChar == '\r')
 			{
-				if (isstring)
+				if (stringOpen)
 				{
 					errorPosition = cCurrChar - cCurrLine;
 					memcpy(cErrorBuffer, cCurrLine, errorPosition);
 					cErrorBuffer[errorPosition] = '\0';
 					addError(iCurrentLine, "Invalid string", cErrorBuffer);
-					isstring = false;
+					stringOpen = false;
 				}
 				cCurrChar++;
 				cCurrChar++;
@@ -263,8 +264,8 @@ bool Lexico::parseSourceCode(const char* src)
 			}
 			else if (*cCurrChar == '*' && sTokenBuffer.back() == '/')
 			{
-				commentaryCount++;
-				commentaryLine = iCurrentLine;
+				commentOpen++;
+				commentLine = iCurrentLine;
 				sTokenBuffer.append(cCurrChar, 1);
 				cCurrChar++;
 				m_cLexState = LEX_STATE::PARSING_COMMENT;
@@ -344,12 +345,13 @@ bool Lexico::parseSourceCode(const char* src)
 			}
 			else if (*cCurrChar == '\r')
 			{
-				if (isstring)
+				if (stringOpen)
 				{
 					errorPosition = cCurrChar - cCurrLine;
 					memcpy(cErrorBuffer, cCurrLine, errorPosition);
 					cErrorBuffer[errorPosition] = '\0';
 					addError(iCurrentLine, "Invalid string", cErrorBuffer);
+					stringOpen = false;
 					cCurrChar++;
 					cCurrChar++;
 					iCurrentLine++;
@@ -357,24 +359,36 @@ bool Lexico::parseSourceCode(const char* src)
 					m_cLexState = LEX_STATE::START;
 				}
 			}
-			else if (*cCurrChar == 34 && isstring == true)
+			else if (*cCurrChar == 34 && stringOpen == true)
 			{
 				sTokenBuffer.append(cCurrChar, 1);
 				cCurrChar++;
-				isstring = false;
+				stringOpen = false;
 				addToken(sTokenBuffer, TOKEN_TYPE::STRING, iCurrentLine);
 				m_cLexState = LEX_STATE::START;
 				sTokenBuffer.clear();
 			}
 			break;
 		case LEX_STATE::PARSING_COMMENT:
-			if (*cCurrChar == '/' && sTokenBuffer.back() == '*')
+			if (*cCurrChar == '\n')
 			{
-				commentaryCount--;
+				cCurrChar++;
+				iCurrentLine++;
+				if (!*comment)
+				{
+					int commentPos = cCurrChar - cCurrLine;
+					memcpy(comment, cCurrLine, commentPos);
+					comment[commentPos] = '\0';
+				}
+			}
+			else if (*cCurrChar == '/' && sTokenBuffer.back() == '*')
+			{
+				commentOpen=false;
 				sTokenBuffer.append(cCurrChar, 1);
 				cCurrChar++;
 				m_cLexState = LEX_STATE::START;
 				sTokenBuffer.clear();
+				*comment = NULL;
 			}
 			else
 			{
@@ -406,19 +420,19 @@ bool Lexico::parseSourceCode(const char* src)
 			ended = 0;
 		}
 	}
-	if (isstring)
+	if (stringOpen)
 	{
 		errorPosition = cCurrChar - cCurrLine;
 		memcpy(cErrorBuffer, cCurrLine, errorPosition);
 		cErrorBuffer[errorPosition] = '\0';
 		addError(iCurrentLine, "Invalid string", cErrorBuffer);
 	}
-	if (commentaryCount>0)
+	if (commentOpen)
 	{
 		errorPosition = cCurrChar - cCurrLine;
 		memcpy(cErrorBuffer, cCurrLine, errorPosition);
 		cErrorBuffer[errorPosition] = '\0';
-		addError(commentaryLine, "Open comment", cErrorBuffer);
+		addError(commentLine, "Open comment", comment);
 	}
 	return m_error->getErrorsNumber() == 0;
 }

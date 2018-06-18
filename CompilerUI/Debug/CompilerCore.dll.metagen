@@ -73,3 +73,9 @@ Struct CompilerCore.LEX_STATE: AutoLayout, AnsiClass, Class, Public, Sealed, Bef
     CompilerCore.LEX_STATE PARSING_DIMEN = 9 : Public, Static, Literal, HasDefault
     CompilerCore.LEX_STATE PARSING_GROUPING = 10 : Public, Static, Literal, HasDefault
     CompilerCore.LEX_STATE PARSING_COMMENT = 11 : Public, Static, Literal, HasDefault
+Struct CompilerCore.Node: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.LocalNode: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.SymTable: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
