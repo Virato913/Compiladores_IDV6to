@@ -138,6 +138,7 @@
     <ClInclude Include="Lexico.h" />
     <ClInclude Include="LocalNode.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Sintactico.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="SymTable.h" />
     <ClInclude Include="Token.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="GlobalNode.cpp" />
     <ClCompile Include="Lexico.cpp" />
     <ClCompile Include="LocalNode.cpp" />
+    <ClCompile Include="Sintactico.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

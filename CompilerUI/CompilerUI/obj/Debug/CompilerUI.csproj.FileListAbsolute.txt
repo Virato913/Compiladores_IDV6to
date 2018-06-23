@@ -42,3 +42,14 @@ E:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.Proper
 E:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.csproj.GenerateResource.Cache
 E:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.exe
 E:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.pdb
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\bin\Debug\CompilerUI.exe.config
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\bin\Debug\CompilerUI.exe
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\bin\Debug\CompilerUI.pdb
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\bin\Debug\CompilerCore.dll
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\bin\Debug\CompilerCore.pdb
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.csprojResolveAssemblyReference.cache
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.Form1.resources
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.Properties.Resources.resources
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.csproj.GenerateResource.Cache
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.exe
+D:\IDV 6º\Compiladores_IDV6to\CompilerUI\CompilerUI\obj\Debug\CompilerUI.pdb

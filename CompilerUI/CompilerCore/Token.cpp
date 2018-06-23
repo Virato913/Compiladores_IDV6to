@@ -38,3 +38,8 @@ const std::string Token::GetType() const
 {
 	return m_tokenMap.find((int)m_cTokenType)->second;
 }
+
+const int Token::GetLine() const
+{
+	return m_iLineNumber;
+}

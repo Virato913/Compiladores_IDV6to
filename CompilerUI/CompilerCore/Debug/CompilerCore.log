@@ -1,15 +1,16 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'e:\idv 6º\compiladores_idv6to\compilerui\compilercore\debug\compilercore.pch' because it is being used by another process.
-  Stdafx.cpp
+﻿  Stdafx.cpp
   AssemblyInfo.cpp
   CompilerCore.cpp
   ErrorModule.cpp
   GlobalNode.cpp
   Lexico.cpp
   LocalNode.cpp
+  Sintactico.cpp
+d:\idv 6º\compiladores_idv6to\compilerui\compilercore\Sintactico.h(41): warning C4018: '<': signed/unsigned mismatch
   SymTable.cpp
   Token.cpp
   Generating Code...
   .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
   AssemblyInfo.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
-  CompilerCore.vcxproj -> E:\IDV 6º\Compiladores_IDV6to\CompilerUI\Debug\CompilerCore.dll
-  CompilerCore.vcxproj -> E:\IDV 6º\Compiladores_IDV6to\CompilerUI\Debug\CompilerCore.pdb (Partial PDB)
+  CompilerCore.vcxproj -> D:\IDV 6º\Compiladores_IDV6to\CompilerUI\Debug\CompilerCore.dll
+  CompilerCore.vcxproj -> D:\IDV 6º\Compiladores_IDV6to\CompilerUI\Debug\CompilerCore.pdb (Partial PDB)

@@ -35,5 +35,6 @@ namespace CompilerCore {
 		~Token();
 		const std::string GetLex() const;
 		const std::string GetType() const;
+		const int GetLine() const;
 	};
 }

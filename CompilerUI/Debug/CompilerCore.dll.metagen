@@ -79,3 +79,19 @@ Struct CompilerCore.LocalNode: AutoLayout, AnsiClass, Class, Public, SequentialL
   :System.ValueType
 Struct CompilerCore.SymTable: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
   :System.ValueType
+Struct CompilerCore.SyntaxBlob: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.SyntaxState: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Abstract, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.ProgramState: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.VarState: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.FunctionState: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.ParamState: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.StartState: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct CompilerCore.Sintactico: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
